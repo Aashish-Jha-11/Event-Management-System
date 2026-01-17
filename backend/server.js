@@ -31,6 +31,7 @@ app.get('/', (req, res) => {
   res.json({ 
     message: 'Event Management API',
     status: 'running',
+    version: '1.0.0',
     endpoints: {
       health: '/api/health',
       profiles: '/api/profiles',
