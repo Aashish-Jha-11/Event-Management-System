@@ -14,6 +14,18 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.get('/', (req, res) => {
+  res.json({ 
+    message: 'Event Management API',
+    status: 'running',
+    endpoints: {
+      health: '/api/health',
+      profiles: '/api/profiles',
+      events: '/api/events'
+    }
+  });
+});
+
 app.use('/api/profiles', profileRoutes);
 app.use('/api/events', eventRoutes);
 
