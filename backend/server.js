@@ -10,19 +10,19 @@ connectDB();
 
 const app = express();
 
-app.use(cors({
+const corsOptions = {
   origin: [
-    'https://event-management-system-backend-three.vercel.app',
+    'https://event-management-system-bv1y.vercel.app',
     'http://localhost:3000'
   ],
-  credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
-  preflightContinue: false,
-  optionsSuccessStatus: 204
-}));
+  credentials: true,
+  optionsSuccessStatus: 200
+};
 
-app.options('*', cors());
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
